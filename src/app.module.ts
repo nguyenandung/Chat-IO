@@ -17,6 +17,7 @@ import { UserModule } from './modules/v1/user/user.module';
 import { MessageModule } from './modules/v1/message/message.module';
 import { GroupModule } from './modules/v1/group/group.module';
 import { ChatModule } from './modules/v1/chat/chat.module';
+import { V1Modules } from './modules/v1/v1.module';
 
 @Module({
   imports: [
@@ -39,18 +40,14 @@ import { ChatModule } from './modules/v1/chat/chat.module';
     //   logging: true,
     //   namingStrategy: new SnakeNamingStrategy(),
     // }),
-    BullModule.forRoot({
-      connection: {
-        host: process.env.REDIS_HOST,
-        port: parseInt(process.env.REDIS_PORT),
-      },
-    }),
+    // BullModule.forRoot({
+    //   connection: {
+    //     host: process.env.REDIS_HOST,
+    //     port: parseInt(process.env.REDIS_PORT),
+    //   },
+    // }),
 
-    UserModule,
-    MessageModule,
-    GroupModule,
-    ChatModule,
-    AuthModule,
+    V1Modules,
   ],
   providers: [
     {

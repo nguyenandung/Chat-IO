@@ -29,7 +29,6 @@ export class GroupController {
     @GetUserByRequest() { id }: { id: number },
     @Body() { name }: CreateGroupDto,
   ): Promise<void> {
-    console.log('createGroupDto', name);
     return await this.commandBus.execute(new CreateGroupCommand(id, name));
   }
 
