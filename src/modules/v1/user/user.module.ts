@@ -7,8 +7,9 @@ import { UserService } from './user.service';
 import UserCommandHandlers from './commands';
 import UserQueryHandlers from './queries';
 import { UserController } from './user.controller';
+
 @Module({
-  imports: [CqrsModule, TypeOrmModule.forFeature([UserEntity])],
+  imports: [CqrsModule, TypeOrmModule.forFeature([UserEntity, UserRepository])],
   controllers: [UserController],
   providers: [
     UserRepository,
@@ -16,6 +17,6 @@ import { UserController } from './user.controller';
     ...UserCommandHandlers,
     ...UserQueryHandlers,
   ],
-  exports: [TypeOrmModule, UserService, UserRepository],
+  exports: [TypeOrmModule, UserService],
 })
 export class UserModule {}

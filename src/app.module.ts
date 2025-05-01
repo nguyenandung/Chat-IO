@@ -14,6 +14,9 @@ import { DatabaseModule } from './database/database.module';
 import rootConfig from './config/index';
 
 import { UserModule } from './modules/v1/user/user.module';
+import { MessageModule } from './modules/v1/message/message.module';
+import { GroupModule } from './modules/v1/group/group.module';
+import { ChatModule } from './modules/v1/chat/chat.module';
 
 @Module({
   imports: [
@@ -44,7 +47,9 @@ import { UserModule } from './modules/v1/user/user.module';
     }),
 
     UserModule,
-
+    MessageModule,
+    GroupModule,
+    ChatModule,
     AuthModule,
   ],
   providers: [

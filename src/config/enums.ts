@@ -11,10 +11,3 @@ export enum SocialProfilePlatform {
   TIKTOK = 5,
   YOUTUBE = 6,
 }
-
-export enum PermissionCode {
-  READ = 1,
-  WRITE = 2,
-  DELETE = 3,
-  EXECUTE = 4,
-}

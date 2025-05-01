@@ -5,8 +5,9 @@ import { BaseEntity } from 'src/shared/entity/base.entity';
 import { User } from '../interface/user.interface';
 import { Exclude } from 'class-transformer';
 import { UserStatus } from '../enums/user-status.enum';
-import { Message } from '../../message/interfaces/message.interface';
-import { Group } from '../../group/interfaces/group.interface';
+
+import { MessageEntity } from '../../message/entity/message.entity';
+import { GroupEntity } from '../../group/entity/group.entity';
 
 @Entity('users')
 export class UserEntity extends BaseEntity implements User {
@@ -59,8 +60,8 @@ export class UserEntity extends BaseEntity implements User {
   @Column({ type: 'varchar', length: 255, nullable: true })
   twoFactorSecretEmail: string | null;
 
-  // @OneToMany(() => Message, (message) => message.sender)
-  messages?: Message[];
-  // @OneToMany(() => Group, (group) => group.creator)
-  groups?: Group[];
+  @OneToMany(() => MessageEntity, (message) => message.sender)
+  messages?: MessageEntity[];
+  @OneToMany(() => GroupEntity, (group) => group.creator)
+  groups?: GroupEntity[];
 }
